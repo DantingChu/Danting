@@ -5,16 +5,24 @@ function MyApp() {
   return (
     <View>
       <Text>
-        {"\n\n\n\n\n\n\n"}
-      Hellp, I am a student in CIS 340! {"\n"}
+      Hello, I am a student in CIS340!
       </Text>
-      <TextInput
-      style = {{
-        height: 40,
-        borderColour: "gray",
-        borderWidth: 1
-      }}
-     />
       </View>
   );
+}
+
+export default function MultiComp() {
+  return(
+    <View style={{
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}>
+      <Text>Welcome to My Class</Text>
+      <MyApp />
+      <MyApp />
+      <MyApp />
+      <MyApp />
+    </View>
+  )
 }

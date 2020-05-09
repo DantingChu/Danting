@@ -1,20 +1,15 @@
 import React from 'react';
-import { Text, TextInput, View} from 'react-native';
+import { Text } from 'react-native';
 
-function MyApp() {
+export default function MyApp() {
+  function getFullName(fname, mName, lName){
+    return fname + " " + mName + " " +lName;
+  }
   return (
-    <View>
       <Text>
         {"\n\n\n\n\n\n\n"}
-      Hellp, I am a student in CIS 340! {"\n"}
+      Hello, I am a student in CIS 340! {"\n"}
+      My full name is{getFullName("Danting", " ", "Chu")}{"\n"}
       </Text>
-      <TextInput
-      style = {{
-        height: 40,
-        borderColour: "gray",
-        borderWidth: 1
-      }}
-     />
-      </View>
   );
 }
