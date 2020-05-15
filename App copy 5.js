@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import * as ImagePicker from 'expo-image-picker';// import
-import * as Sharing from 'expo-shaing'; //import
+import * as ImagePicker from 'expo-image-picker'// import
 
 export default function App() {
 
@@ -14,30 +13,19 @@ const [selectedImage, setSelectedImage ] = React.useState(null)
       alert("Permission is required!");
       return;
     }
+    
     let pickerResult = await ImagePicker.launchImageLibraryAsync();
     if(pickerResult.cancelled === true) {
       return;
     }
     setSelectedImage({ localUri: pickerResult.uri});
-    };
-    // add the sharing image dialog
-    let openSharingDialogAsync = async () => {
-         if(!(await Sharing.isAvailableAsync())){
-           alert('Sharing is not available on my phone');
-           return;
-         }
-         Sharing.shareAsync(selectedImage.localUri);
-    };
+    }
 
     //display the seoected image
     if(selectedImage !== null) {
       return(
         <View style={styles.container}>
           <Image source={{uri: selectedImage.localUri}} style={styles.selImage}/>
-          <TouchableOpacity onPress={openSharingDialogAsync} style={styles.button}>
-            <Text style={styles.buttonText}> Share My Phone </Text>
-
-          </TouchableOpacity>
         </View>
       )
     }
